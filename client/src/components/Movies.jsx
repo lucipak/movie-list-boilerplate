@@ -9,7 +9,7 @@ const MovieList = (props) => {
       {props.movies.map((movie, idx) => {
         return (
           <div key={idx}>
-            <MovieListEntry movies={movie} showInfo={props.showInfo} />
+            <MovieListEntry movie={movie} />
             <ToggleButton
               updateMovie={props.updateMovie}
               id={movie.id}

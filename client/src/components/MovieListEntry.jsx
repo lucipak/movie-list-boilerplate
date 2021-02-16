@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
-const MovieListEntry = (props) => {
+const MovieListEntry = ({ movie }) => {
+  const [showMore, setShowMore] = useState({ showDetails: false });
+  const handleShowMore = (e) => {
+    e.preventDefault();
+
+    setShowMore({ showDetails: !showMore.showDetails });
+  };
   return (
     <div>
-      <div className="movie-list-title" onClick={props.showInfo}>
-        {props.movies.title}
+      <div className="movie-list-title" onClick={handleShowMore}>
+        {showMore.showDetails ? (
+          <div>
+            <div>{movie.title}</div>
+            <p>{movie.overview}</p>
+            <p>{movie.releaseDate}</p>
+            <p>{movie.voterAverage}</p>
+          </div>
+        ) : (
+          <div>{movie.title}</div>
+        )}
       </div>
     </div>
   );

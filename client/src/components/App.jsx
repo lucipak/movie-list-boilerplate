@@ -16,7 +16,6 @@ class App extends React.Component {
     this.getMovies = this.getMovies.bind(this);
     this.updateIfWatched = this.updateIfWatched.bind(this);
     this.deleteMovie = this.deleteMovie.bind(this);
-    this.showInfo = this.showInfo.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +30,6 @@ class App extends React.Component {
   }
 
   addNewMovie(movie) {
-    console.log(movie);
     axios
       .post("/api/movies", movie)
       .then(() => this.getMovies())
@@ -48,7 +46,6 @@ class App extends React.Component {
   }
 
   updateIfWatched(movie) {
-    console.log(movie);
     axios
       .put("/api/movies", movie)
       .then(() => this.getMovies())
@@ -68,10 +65,6 @@ class App extends React.Component {
       movies: container,
     });
     event.preventDefault();
-  }
-
-  showInfo(e) {
-    console.log("event");
   }
 
   render() {
