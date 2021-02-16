@@ -16,14 +16,14 @@ app.get("/api/movies", (req, res) => {
 });
 
 app.post("/api/movies", (req, res) => {
-  let { title, overview, releaseDate, voterAverage } = req.body;
+  let { title, overview, releaseDate, voterAverage, imageURL } = req.body;
   console.log(req.body);
   let queryStr =
-    "INSERT INTO movielist (title, overview, releaseDate, voterAverage) VALUES (?, ? , ? , ?)";
+    "INSERT INTO movielist (title, overview, releaseDate, voterAverage, imageURL) VALUES (?, ? , ? , ?, ?)";
   db.query(
     queryStr,
-    [title, overview, releaseDate, voterAverage],
-    (err, data) => {
+    [title, overview, releaseDate, voterAverage, imageURL],
+    (err) => {
       err ? res.sendStatus(500) : res.sendStatus(201);
     }
   );

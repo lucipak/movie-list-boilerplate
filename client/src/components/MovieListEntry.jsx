@@ -16,6 +16,7 @@ const MovieListEntry = ({ movie }) => {
             <p>{movie.overview}</p>
             <p>{movie.releaseDate}</p>
             <p>{movie.voterAverage}</p>
+            <img src={movie.imageURL} />
           </div>
         ) : (
           <div>{movie.title}</div>

@@ -38,7 +38,6 @@ class App extends React.Component {
 
   deleteMovie(e) {
     const { value } = e.target;
-    console.log(value);
     axios
       .delete(`/api/movies/${value}`)
       .then(() => this.getMovies())

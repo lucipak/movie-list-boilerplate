@@ -9,8 +9,8 @@ class AddMovies extends React.Component {
       overview: "",
       releaseDate: "",
       voterAverage: 0,
+      imageURL: "",
     };
-
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -39,6 +39,7 @@ class AddMovies extends React.Component {
           overview: result.overview,
           releaseDate: result.release_date,
           voterAverage: result.vote_average,
+          imageURL: result.poster_path,
         });
       })
       .then(() => this.props.addNewMovie(this.state));
